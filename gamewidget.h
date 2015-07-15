@@ -6,7 +6,6 @@
 #include <iostream>
 #include <QLabel>
 #include <QHBoxLayout>
-#include 
 
 
 class gameWidget : public QWidget
