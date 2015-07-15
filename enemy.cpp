@@ -1,6 +1,7 @@
 #include "enemy.h"
 
-Enemy::Enemy()
+Enemy::Enemy(QString name, int health)
 {
-    
+    this->name = name;
+    this->health = health;
 }
