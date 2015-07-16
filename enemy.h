@@ -1,19 +1,32 @@
 #ifndef ENEMY_H
 #define ENEMY_H
-#include <QPixmap>
-#include <qstring>
 
-class Enemy
+#include <QWidget>
+#include <QPixmap>
+#include <QString>
+#include <QPainter>
+
+class Enemy : public QWidget
 {
+    //Q_OBJECT
+
 public:
-    Enemy(QString name, int health);
+    Enemy(QWidget *parent, QString name, QString enemyImage, int health);
+
+    void damage(int hit);
+
+    int getHealth();
+
 private:
     QString name;
-    QPixmap image;
+    QString dir;
+    QPixmap *image;
+    QPainter *painter;
 
     int health;
 
 protected:
+    void paintEvent(QPaintEvent *e);
 
 };
 
