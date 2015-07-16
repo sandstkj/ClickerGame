@@ -7,29 +7,36 @@
 #include <QLabel>
 #include <QHBoxLayout>
 
+#include "enemy.h"
 
-class gameWidget : public QWidget
+class GameWidget : public QWidget
 {
     Q_OBJECT
 public:
-    gameWidget(QWidget *parent, QSize tempSize);
+    GameWidget(QWidget *parent, QSize tempSize);
 
 signals:
+    void clicked();
+    void release();
+    void pressed();
 
 public slots:
 
 protected:
     void paintEvent(QPaintEvent *e);
+    void mousePressEvent(QMouseEvent*);
+    void mouseReleaseEvent(QMouseEvent*);
 
 protected slots:
     void increaseCount();
 
 private:
-    QPainter painter;
     QHBoxLayout *layout;
+    Enemy *hostile;
+    QLabel* label;
 
     int count;
-
+    int state;
 
 };
 
